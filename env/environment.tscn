@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://tikfvp4aop40"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r75ni"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r75ni"]
+albedo_color = Color(0.28503, 0.468484, 0.347023, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhwpu"]
+
+[node name="environment" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.7305, 0, 0, 0, 0.018807, 0, 0, 0, 6.27025, 0, 0, 0)
+mesh = SubResource("BoxMesh_r75ni")
+surface_material_override/0 = SubResource("StandardMaterial3D_r75ni")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_xhwpu")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8mp0y201pwr5"]
+
+[ext_resource type="PackedScene" uid="uid://tikfvp4aop40" path="res://env/environment.tscn" id="1_hjsbj"]
+[ext_resource type="PackedScene" uid="uid://hvmsbg84hqjl" path="res://player/player.tscn" id="2_cwqvt"]
+[ext_resource type="Texture2D" uid="uid://dxlcqgf4x8gcu" path="res://addons/autumn_field_puresky_4k.hdr" id="3_cwqvt"]
+[ext_resource type="PackedScene" uid="uid://jgdigfvxph63" path="res://skeleton/skele.tscn" id="4_5mrsh"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5mrsh"]
+panorama = ExtResource("3_cwqvt")
+
+[sub_resource type="Sky" id="Sky_safpt"]
+sky_material = SubResource("PanoramaSkyMaterial_5mrsh")
+
+[sub_resource type="Environment" id="Environment_gjl0y"]
+background_mode = 2
+sky = SubResource("Sky_safpt")
+
+[node name="level" type="Node3D"]
+
+[node name="environment" parent="." instance=ExtResource("1_hjsbj")]
+transform = Transform3D(6.425, 0, 0, 0, 6.425, 0, 0, 0, 6.425, 0, 0, 0)
+
+[node name="player" parent="." instance=ExtResource("2_cwqvt")]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -13, 1.70707, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gjl0y")
+
+[node name="skele" parent="." instance=ExtResource("4_5mrsh")]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 3.54463, 3.43596, 0)
