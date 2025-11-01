@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://jgdigfvxph63"]
+[gd_scene load_steps=7 format=3 uid="uid://jgdigfvxph63"]
 
 [ext_resource type="PackedScene" uid="uid://d0hr04kcqcwld" path="res://skeleton/skeleton_mage.glb" id="1_fcgtr"]
 [ext_resource type="Script" uid="uid://bvjjgkam51dkn" path="res://skeleton/skele.gd" id="2_yxhob"]
+[ext_resource type="Script" uid="uid://cbkf248orvrn1" path="res://states/state_machine.gd" id="3_sje7y"]
+[ext_resource type="Script" uid="uid://cm37bx0y6oda8" path="res://states/ske_idle.gd" id="4_0kkg8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sje7y"]
 radius = 0.40768
@@ -83,6 +85,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11308, 0)
 [node name="chase_trigger" type="CollisionShape3D" parent="chase_box" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.41377, 0)
 shape = SubResource("SphereShape3D_sje7y")
+
+[node name="State Machine" type="Node" parent="." index="4" node_paths=PackedStringArray("init_state") groups=["enemy"]]
+script = ExtResource("3_sje7y")
+init_state = NodePath("ske_idle")
+
+[node name="ske_idle" type="Node" parent="State Machine" index="0" node_paths=PackedStringArray("skele")]
+script = ExtResource("4_0kkg8")
+skele = NodePath("../..")
+metadata/_custom_type_script = "uid://cm37bx0y6oda8"
 
 [connection signal="body_entered" from="chase_box" to="." method="_on_chase_box_body_entered"]
 [connection signal="body_exited" from="chase_box" to="." method="_on_chase_box_body_exited"]
