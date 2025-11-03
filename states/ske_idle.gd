@@ -14,6 +14,7 @@ var wander_time : float
 
 func randomize_wander():
 	# skeleton pacing back and forth in x axis
+	# normalized function - takes the vector value and scales it to 1, making sure each time the speed is consistent
 	move_dir = Vector3(randf_range(-1,1),0,0).normalized()
 	
 	# random time to swtich directions (left, right)
