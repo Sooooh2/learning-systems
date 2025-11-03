@@ -5,7 +5,7 @@ extends CharacterBody3D
 @onready var cam: Camera3D = $head/Camera3D
 
 # player movement
-const SPEED = 5.0
+const SPEED = 15.0
 const JUMP_VELOCITY = 4.5
 
 # mouse - cam movement

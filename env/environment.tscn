@@ -8,10 +8,9 @@ albedo_color = Color(0.28503, 0.468484, 0.347023, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xhwpu"]
 
 [node name="environment" type="Node3D"]
-transform = Transform3D(4.65, 0, 0, 0, 4.65, 0, 0, 0, 4.65, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.7305, 0, 0, 0, 0.018807, 0, 0, 0, 6.27025, 0, 0, 0)
+transform = Transform3D(162.185, 0, 0, 0, 0.536, 0, 0, 0, 177.44, 0, 0, 0)
 mesh = SubResource("BoxMesh_r75ni")
 surface_material_override/0 = SubResource("StandardMaterial3D_r75ni")
 
