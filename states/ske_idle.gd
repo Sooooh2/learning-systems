@@ -13,12 +13,11 @@ class_name ske_idle
 var move_dir: Vector3
 var wander_time : float
 
-
+# for random movement when in idle state
 func randomize_wander():
 	var angle = randf_range(0, TAU)
 	move_dir = Vector3(cos(angle), 0, sin(angle)).normalized()
 	wander_time = randf_range(1, 3)
-
 
 
 func enter():
